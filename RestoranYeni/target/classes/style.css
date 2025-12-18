@@ -1,0 +1,139 @@
+
+/* 1. GENEL AYARLAR */
+.root {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-background-color: #f4f7f6; /* Hafif gri arka plan */
+}
+
+/* 2. PANELLER VE KUTULAR */
+.content-panel {
+    -fx-background-color: #ffffff; /* Beyaz kart görünümü */
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5); /* Hafif gölge */
+    -fx-padding: 15px;
+}
+
+/* 3. BAŞLIKLAR */
+.header-label {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 0 0 10 0;
+    -fx-border-color: transparent transparent #e67e22 transparent; /* Altı turuncu çizgili */
+    -fx-border-width: 2px;
+}
+
+.total-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e67e22; /* Turuncu */
+    -fx-alignment: CENTER_RIGHT;
+}
+
+/* 4. GİRİŞ KUTULARI (TEXTFIELD) */
+.text-field {
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #bdc3c7;
+}
+.text-field:focused {
+    -fx-border-color: #e67e22; /* Tıklayınca turuncu çerçeve */
+}
+
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+}
+
+/* --- BAŞLIK AYARLARI  --- */
+
+/* 1. Başlık Arka Planı */
+.table-view .column-header, .table-view .column-header-background .filler {
+    -fx-background-color: #2980b9; /* Proje Mavisi */
+    -fx-border-color: transparent;
+}
+
+/* 2. Başlığın Arkasındaki Şerit (Aynı Mavi) */
+.table-view .column-header-background {
+    -fx-background-color: #2980b9;
+    -fx-background-radius: 5px 5px 0 0; /* Köşeleri yuvarlat */
+}
+
+/* 3. Başlık Yazısı (Beyaz) */
+.table-view .column-header .label {
+    -fx-text-fill: white; /* Mavi zemin üzerine Beyaz yazı */
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+/* Normal Satırlar  */
+.table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent transparent #ecf0f1 transparent;
+}
+.table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+/* Seçili Satır  */
+.table-view:focused .table-row-cell:filled:selected {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+}
+.table-row-cell:filled:selected {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+}
+.table-row-cell:filled:selected .text {
+    -fx-fill: white;
+}
+.table-row-cell:filled:selected:hover {
+    -fx-background-color: #2c3e50;
+}
+
+
+
+
+.button {
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-padding: 8 15 8 15;
+}
+
+/* Turuncu Buton (Sepete Ekle) */
+.action-button {
+    -fx-background-color: #e67e22;
+    -fx-text-fill: white;
+}
+.action-button:hover { -fx-background-color: #d35400; }
+
+/* Yeşil Buton (Siparişi Tamamla) */
+.success-button {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+.success-button:hover { -fx-background-color: #219150; }
+
+/* Kırmızı Buton (Tablo İçindeki SİL Butonu) */
+.danger-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-padding: 4 10 4 10;
+}
+.danger-button:hover { -fx-background-color: #c0392b; }
+
+/* Gri/Mavi Butonlar (Stok ve Reçete Geçişleri) */
+.nav-button {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+.nav-button:hover { -fx-background-color: #2c3e50; }
+
+

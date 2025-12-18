@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+
+<VBox alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.restoran.GirisController"
+      styleClass="root">
+
+    <stylesheets>
+        <URL value="@/style.css" />
+    </stylesheets>
+
+    <VBox spacing="20" styleClass="content-panel" maxWidth="350" alignment="CENTER">
+        <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+
+        <Label text="SİSTEM GİRİŞİ" styleClass="header-label"/>
+
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Kullanıcı Adı:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtKullanici" promptText="admin" maxWidth="Infinity"/>
+        </VBox>
+
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Şifre:" style="-fx-font-weight: bold;"/>
+            <PasswordField fx:id="txtSifre" promptText="****" maxWidth="Infinity"/>
+        </VBox>
+
+        <Button text="GİRİŞ YAP ➜" onAction="#girisYap" styleClass="action-button" maxWidth="Infinity"/>
+
+        <Label fx:id="lblHata" text="" style="-fx-text-fill: red;" visible="false"/>
+    </VBox>
+
+</VBox>

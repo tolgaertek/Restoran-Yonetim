@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+
+<HBox spacing="20" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.restoran.AdminController"
+      styleClass="root">
+
+    <stylesheets>
+        <URL value="@/style.css" />
+    </stylesheets>
+
+    <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+
+    <VBox spacing="15" styleClass="content-panel" minWidth="340">
+
+        <Label text="ÜRÜN YÖNETİMİ" styleClass="header-label"/>
+
+        <VBox spacing="5">
+            <Label text="Ürün Adı:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtAd" />
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Satış Fiyatı (TL):" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtFiyat" />
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Kategori:" style="-fx-font-weight: bold;"/>
+            <ComboBox fx:id="cmbKategori" promptText="Kategori Seçiniz" maxWidth="Infinity"/>
+        </VBox>
+
+        <Separator/>
+
+        <VBox spacing="10">
+            <Button text="KAYDET" onAction="#urunEkle"
+                    styleClass="success-button" maxWidth="Infinity"
+                    style="-fx-font-weight: bold; -fx-padding: 10;"/>
+
+            <HBox spacing="10">
+                <Button text="GÜNCELLE" onAction="#urunGuncelle"
+                        styleClass="action-button" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                        style="-fx-base: #f39c12; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+                <Button text="SİL" onAction="#urunSil"
+                        styleClass="action-button" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                        style="-fx-base: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+
+        <Separator/>
+
+        <VBox spacing="10">
+
+
+            <Button text="Depo / Stok Yönetimi" onAction="#stokSayfasinaGit"
+                    styleClass="action-button" maxWidth="Infinity"/>
+
+            <Button text="Reçeteleri Düzenle" onAction="#receteSayfasinaGit"
+                    styleClass="action-button" maxWidth="Infinity"/>
+
+            <Button text="Raporlar ve Analiz" onAction="#raporSayfasinaGit" styleClass="action-button" maxWidth="Infinity"/>
+        </VBox>
+
+        <Separator/>
+
+        <Button text="Çıkış" onAction="#cikisYap" styleClass="nav-button" maxWidth="Infinity"/>
+    </VBox>
+
+    <VBox spacing="10" styleClass="content-panel" HBox.hgrow="ALWAYS">
+        <Label text="MEVCUT MENÜ LİSTESİ" styleClass="header-label"/>
+
+        <TableView fx:id="tblUrunler" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colID" text="ID" minWidth="50" style="-fx-alignment: CENTER;"/>
+                <TableColumn fx:id="colAd" text="Ürün Adı" minWidth="200"/>
+                <TableColumn fx:id="colFiyat" text="Fiyat (TL)" minWidth="100" style="-fx-alignment: CENTER;"/>
+                <TableColumn fx:id="colKategori" text="Kategori" minWidth="150" style="-fx-alignment: CENTER;"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+
+
+    </VBox>
+
+</HBox>

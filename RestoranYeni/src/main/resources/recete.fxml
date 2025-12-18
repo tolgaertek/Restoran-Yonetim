@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+
+<HBox spacing="20" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.restoran.ReceteController"
+      styleClass="root">
+
+    <stylesheets>
+        <URL value="@/style.css" />
+    </stylesheets>
+
+    <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+
+    <VBox spacing="15" styleClass="content-panel" minWidth="320">
+        <Label text="REÇETE OLUŞTUR" styleClass="header-label"/>
+
+
+
+        <VBox spacing="5">
+            <Label text="Ana Yemek:" style="-fx-font-weight: bold;"/>
+            <ComboBox fx:id="cmbUrunler" promptText="Yemek Seçiniz" maxWidth="Infinity"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="İçine Konacak Malzeme:" style="-fx-font-weight: bold;"/>
+            <ComboBox fx:id="cmbMalzemeler" promptText="Malzeme Seçiniz" maxWidth="Infinity"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Kullanım Miktarı:" style="-fx-font-weight: bold;"/>
+            <HBox spacing="10">
+                <TextField fx:id="txtMiktar" promptText="0.0" HBox.hgrow="ALWAYS"/>
+                <Label fx:id="lblBirim" text="Birim" style="-fx-padding: 5; -fx-background-color: #ddd;"/>
+            </HBox>
+        </VBox>
+
+        <Separator/>
+
+        <Button text="REÇETEYE EKLE" onAction="#receteEkle"
+                styleClass="success-button" maxWidth="Infinity" style="-fx-padding: 10;"/>
+
+        <VBox VBox.vgrow="ALWAYS"/> <Button text="Geri Dön" onAction="#geriDon" styleClass="nav-button" maxWidth="Infinity"/>
+    </VBox>
+
+
+    <VBox spacing="10" styleClass="content-panel" HBox.hgrow="ALWAYS">
+        <Label text="TANIMLI REÇETELER" styleClass="header-label"/>
+
+        <TableView fx:id="tblReceteler" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colUrun" text="Yemek Adı" minWidth="150"/>
+                <TableColumn fx:id="colMalzeme" text="İçindeki Malzeme" minWidth="150"/>
+                <TableColumn fx:id="colMiktar" text="Miktar" minWidth="80" style="-fx-alignment: CENTER;"/>
+                <TableColumn fx:id="colBirim" text="Birim" minWidth="80" style="-fx-alignment: CENTER;"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+
+        <Button text="SEÇİLİ SATIRI SİL" onAction="#receteSil"
+                styleClass="action-button" maxWidth="Infinity" style="-fx-base: #e74c3c;"/>
+    </VBox>
+
+</HBox>

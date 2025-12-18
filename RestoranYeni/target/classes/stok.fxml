@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+
+<HBox spacing="20" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.restoran.StokController"
+      styleClass="root">
+
+    <stylesheets>
+        <URL value="@/style.css" />
+    </stylesheets>
+
+    <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+
+    <VBox spacing="15" styleClass="content-panel" minWidth="300">
+        <Label text="YENİ MALZEME TANIMLA" styleClass="header-label"/>
+
+
+
+        <VBox spacing="5">
+            <Label text="Malzeme Adı:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtYeniAd" />
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Birim Türü:" style="-fx-font-weight: bold;"/>
+            <ComboBox fx:id="cmbBirim" promptText="Seçiniz (kg, adet...)" maxWidth="Infinity"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Başlangıç Stoğu:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtYeniStok" promptText="0"/>
+        </VBox>
+
+        <Button text="SİSTEME KAYDET" onAction="#yeniMalzemeEkle"
+                styleClass="success-button" maxWidth="Infinity" style="-fx-padding: 10;"/>
+
+        <Separator/>
+
+        <Button text="Geri Dön" onAction="#geriDon" styleClass="nav-button" maxWidth="Infinity"/>
+    </VBox>
+
+    <VBox spacing="10" styleClass="content-panel" HBox.hgrow="ALWAYS">
+        <Label text="DEPO MEVCUT DURUMU" styleClass="header-label"/>
+
+        <TableView fx:id="tblMalzemeler" VBox.vgrow="ALWAYS" editable="true">
+            <columns>
+                <TableColumn fx:id="colID" text="ID" minWidth="50" style="-fx-alignment: CENTER;"/>
+                <TableColumn fx:id="colAd" text="Malzeme Adı" minWidth="150"/>
+                <TableColumn fx:id="colMiktar" text="Mevcut Stok" minWidth="100" style="-fx-alignment: CENTER; -fx-font-weight: bold;"/>
+                <TableColumn fx:id="colBirim" text="Birim" minWidth="80" style="-fx-alignment: CENTER;"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #f0f0f0; -fx-padding: 10; -fx-background-radius: 5;">
+            <Label text="Hızlı Ekle:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtEklenecekMiktar" promptText="Miktar" prefWidth="100"/>
+            <Button text="Seçili Ürüne Stok Ekle" onAction="#stokArttir" styleClass="action-button"/>
+        </HBox>
+    </VBox>
+
+</HBox>

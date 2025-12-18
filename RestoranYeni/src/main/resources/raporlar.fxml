@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.restoran.RaporController"
+            styleClass="root" prefWidth="1000" prefHeight="700">
+
+    <stylesheets>
+        <URL value="@/style.css" />
+    </stylesheets>
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <top>
+        <HBox spacing="20" alignment="CENTER_LEFT" styleClass="content-panel" style="-fx-padding: 15;">
+            <Label text="GENEL RAPORLAR VE FİNANSAL ÖZET" styleClass="header-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Yönetim Paneline Dön" onAction="#geriDon" styleClass="nav-button"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="20" style="-fx-padding: 20 0 20 0;">
+            <VBox styleClass="content-panel" HBox.hgrow="ALWAYS">
+                <Label text="En Çok Satan 5 Ürün" style="-fx-font-weight: bold;"/>
+                <BarChart fx:id="barChartSatis" animated="false">
+                    <xAxis><CategoryAxis label="Ürünler" /></xAxis>
+                    <yAxis><NumberAxis label="Satış Adedi" /></yAxis>
+                </BarChart>
+            </VBox>
+
+            <VBox styleClass="content-panel" HBox.hgrow="ALWAYS">
+                <Label text="Kategori Bazlı Ciro Dağılımı" style="-fx-font-weight: bold;"/>
+                <PieChart fx:id="pieChartKategori" animated="false" legendSide="RIGHT"/>
+            </VBox>
+        </HBox>
+    </center>
+
+    <bottom>
+        <HBox spacing="20" alignment="CENTER" prefHeight="120">
+
+            <VBox styleClass="content-panel" HBox.hgrow="ALWAYS" alignment="CENTER" style="-fx-background-color: #2ecc71; -fx-text-fill: white;">
+                <Label text="TOPLAM CİRO" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <Label fx:id="lblToplamCiro" text="0.00 TL" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            </VBox>
+
+            <VBox styleClass="content-panel" HBox.hgrow="ALWAYS" alignment="CENTER" style="-fx-background-color: #3498db; -fx-text-fill: white;">
+                <Label text="TOPLAM ADİSYON" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <Label fx:id="lblToplamSiparis" text="0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            </VBox>
+
+            <VBox styleClass="content-panel" HBox.hgrow="ALWAYS" alignment="CENTER" style="-fx-background-color: #f1c40f; -fx-text-fill: white;">
+                <Label text="SATILAN ÜRÜN ADEDİ" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <Label fx:id="lblToplamUrun" text="0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            </VBox>
+
+        </HBox>
+    </bottom>
+
+</BorderPane>
